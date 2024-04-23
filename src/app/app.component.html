@@ -1,6 +1,12 @@
-<app-nav-bar></app-nav-bar>
-<ul>
-  <br><br>
-  <li *ngFor="let items of products"> {{ items.name }}</li>
-</ul>
-<app-footer-b-var></app-footer-b-var>
+<app-var-bar></app-var-bar>
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div class="container product_section_container">
+  <div class="row">
+    <div class="col product_section clearfix">
+      <!--<app-shops></app-shops>-->
+      <app-section-header></app-section-header>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-footer-bar></app-footer-bar>
+</div>

@@ -3,24 +3,31 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterBVarComponent } from './core/footer-b-var/footer-b-var.component';
-import { NavBarComponent } from './core/nav-bar/nav-bar.component';
-import { CommonModule } from '@angular/common';
-import { SharedModule } from './shared/shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './home/home.module';
+import { CoreModule } from './core/core.module';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FooterBVarComponent,
-    NavBarComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule,
+    CoreModule,
+    HttpClientModule,
+    //ShopModule,
     SharedModule,
-    HttpClientModule
+    PaginationModule,
+    HomeModule,
+    BrowserAnimationsModule,
+    BreadcrumbModule,
+    NgxSpinnerModule
   ],
   providers: [
     provideClientHydration()
