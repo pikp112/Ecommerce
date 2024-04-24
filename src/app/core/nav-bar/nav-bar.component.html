@@ -7,7 +7,6 @@
                 <div class="col-md-6 text-right">
                     <div class="top_nav_right">
                         <ul class="top_nav_menu">
- <!--
                             <li class="currency">
                                 <a href="#">
                                     usd
@@ -31,17 +30,27 @@
                                     <li><a href="#">German</a></li>
                                     <li><a href="#">Spanish</a></li>
                                 </ul>
-                            </li>-->
+                            </li>
+                            <div *ngIf="(currentUser$ | async)">
+                                <li class="account">
+                                  <a href="#">
+                                    Welcome {{ (currentUser$ | async).displayName }}
+                                    <i class="fa fa-angle-down"></i>
+                                  </a>
+                                </li>
+                              </div>
+                            <div *ngIf="(currentUser$|async)===null">
                             <li class="account">
                                 <a href="#">
                                     My Account
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                                 <ul class="account_selection">
-                                    <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-                                    <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                                    <li><a routerLink="/account/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                                    <li><a routerLink="/account/register"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
                                 </ul>
                             </li>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -66,7 +75,6 @@
                             <li><a href="contact.html">contact</a></li>
                         </ul>
                         <ul  routerLink="/basket"  *ngIf="(basket$ | async) as basket"  class="navbar_user">
-                        <!--    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>-->
                             <li><a routerLink="/basket"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                             <li class="checkout">
                                 <a routerLink="/basket">
