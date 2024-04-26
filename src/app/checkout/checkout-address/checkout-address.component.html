@@ -1,0 +1,96 @@
+<!-- app-checkout-address.component.html -->
+
+<div class="checkout-address">
+  <form [formGroup]="checkoutForm">
+
+    <!-- Address Form -->
+    <div formGroupName="addressForm">
+      <h2>Shipping Address</h2>
+      <div class="form-group row">
+        <label for="firstName" class="col-md-3 col-form-label">First Name</label>
+        <div class="col-md-9">
+          <input type="text" formControlName="firstName" id="firstName" class="form-control"
+                 [ngClass]="{'is-invalid': checkoutForm.get('addressForm.firstName').invalid && 
+                                       (checkoutForm.get('addressForm.firstName').dirty || checkoutForm.get('addressForm.firstName').touched)}" />
+          <div *ngIf="checkoutForm.get('addressForm.firstName').invalid && (checkoutForm.get('addressForm.firstName').dirty || checkoutForm.get('addressForm.firstName').touched)"
+               class="invalid-feedback">
+            First Name is required.
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <label for="lastName" class="col-md-3 col-form-label">Last Name</label>
+        <div class="col-md-9">
+          <input type="text" formControlName="lastName" id="lastName" class="form-control"
+                 [ngClass]="{'is-invalid': checkoutForm.get('addressForm.lastName').invalid && 
+                                       (checkoutForm.get('addressForm.lastName').dirty || checkoutForm.get('addressForm.lastName').touched)}" />
+          <div *ngIf="checkoutForm.get('addressForm.lastName').invalid && (checkoutForm.get('addressForm.lastName').dirty || checkoutForm.get('addressForm.lastName').touched)"
+               class="invalid-feedback">
+            Last Name is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="street" class="col-md-3 col-form-label">Street</label>
+        <div class="col-md-9">
+          <input type="text" formControlName="street" id="street" class="form-control"
+                 [ngClass]="{'is-invalid': checkoutForm.get('addressForm.street').invalid && 
+                                       (checkoutForm.get('addressForm.street').dirty || checkoutForm.get('addressForm.street').touched)}" />
+          <div *ngIf="checkoutForm.get('addressForm.street').invalid && (checkoutForm.get('addressForm.street').dirty || checkoutForm.get('addressForm.street').touched)"
+               class="invalid-feedback">
+            Street is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="city" class="col-md-3 col-form-label">City</label>
+        <div class="col-md-9">
+          <input type="text" formControlName="city" id="city" class="form-control"
+                 [ngClass]="{'is-invalid': checkoutForm.get('addressForm.city').invalid && 
+                                       (checkoutForm.get('addressForm.city').dirty || checkoutForm.get('addressForm.city').touched)}" />
+          <div *ngIf="checkoutForm.get('addressForm.city').invalid && (checkoutForm.get('addressForm.city').dirty || checkoutForm.get('addressForm.city').touched)"
+               class="invalid-feedback">
+            City is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="state" class="col-md-3 col-form-label">State</label>
+        <div class="col-md-9">
+          <input type="text" formControlName="state" id="state" class="form-control"
+                 [ngClass]="{'is-invalid': checkoutForm.get('addressForm.state').invalid && 
+                                       (checkoutForm.get('addressForm.state').dirty || checkoutForm.get('addressForm.state').touched)}" />
+          <div *ngIf="checkoutForm.get('addressForm.state').invalid && (checkoutForm.get('addressForm.state').dirty || checkoutForm.get('addressForm.state').touched)"
+               class="invalid-feedback">
+            State is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="zip" class="col-md-3 col-form-label">ZIP Code</label>
+        <div class="col-md-9">
+          <input type="text" formControlName="zip" id="zip" class="form-control"
+                 [ngClass]="{'is-invalid': checkoutForm.get('addressForm.zip').invalid && 
+                                       (checkoutForm.get('addressForm.zip').dirty || checkoutForm.get('addressForm.zip').touched)}" />
+          <div *ngIf="checkoutForm.get('addressForm.zip').invalid && (checkoutForm.get('addressForm.zip').dirty || checkoutForm.get('addressForm.zip').touched)"
+               class="invalid-feedback">
+            ZIP Code is required.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group row">
+      <div class="col-md-9 offset-md-3">
+        <button type="submit" class="btn btn-primary" [disabled]="checkoutForm.invalid || checkoutForm.pristine">Next</button>
+      </div>
+    </div>
+  </form>
+</div>

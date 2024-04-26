@@ -1,0 +1,28 @@
+.contener {
+    .nav {
+        &-link {
+            padding: 10px 20px;
+            background-color: #ccc;
+            border: 1px solid #666;
+            color: #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &.active {
+                background-color: #007bff;
+                color: #fff;
+                border-color: #007bff;
+            }
+
+            &:hover {
+                background-color: #007bff;
+                color: #fff;
+                border-color: #007bff;
+            }
+        }
+    }
+
+    li {
+        list-style: none;
+    }}

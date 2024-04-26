@@ -1,0 +1,33 @@
+<!-- checkout-delivery.component.html -->
+
+<div class="checkout-delivery">
+    <h2>Delivery Method</h2>
+    <div *ngIf="deliveryMethod">
+      <div class="form-group">
+        <label for="deliveryMethod">Select Delivery Method</label>
+        <select formControlName="deliveryMethod" id="deliveryMethod" class="form-control"
+                [ngClass]="{'is-invalid': checkoutForm.get('deliveryForm.deliveryMethod').invalid && 
+                                        (checkoutForm.get('deliveryForm.deliveryMethod').dirty || checkoutForm.get('deliveryForm.deliveryMethod').touched)}">
+          <option value="" disabled>Select Delivery Method</option>
+          <option *ngFor="let method of deliveryMethod" [ngValue]="method">{{ method.shortName }} - {{ method.description }} ({{ method.price | currency:'USD':'symbol':'1.2-2' }})</option>
+        </select>
+        <div *ngIf="checkoutForm.get('deliveryForm.deliveryMethod').invalid && (checkoutForm.get('deliveryForm.deliveryMethod').dirty || checkoutForm.get('deliveryForm.deliveryMethod').touched)"
+             class="invalid-feedback">
+          Please select a delivery method.
+        </div>
+      </div>
+      
+      <div *ngIf="checkoutForm.get('deliveryForm.deliveryMethod').value">
+        <h3>Delivery Details</h3>
+        <p>Delivery Time: {{ checkoutForm.get('deliveryForm.deliveryMethod').value.deliveryTime }}</p>
+        <p>Price: {{ checkoutForm.get('deliveryForm.deliveryMethod').value.price | currency:'USD':'symbol':'1.2-2' }}</p>
+        <p>Description: {{ checkoutForm.get('deliveryForm.deliveryMethod').value.description }}</p>
+      </div>
+    </div>
+  
+    <!-- Submit Button -->
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="checkoutForm.get('deliveryForm.deliveryMethod').invalid || checkoutForm.pristine">Next</button>
+    </div>
+  </div>
+  

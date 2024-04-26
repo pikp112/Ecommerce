@@ -11,8 +11,6 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { LoginComponent } from './account/login/login.component';
-import { RegisterComponent } from './account/register/register.component';
 import { AccountModule } from './account/account.module';
 
 @NgModule({
